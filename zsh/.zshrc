@@ -113,3 +113,4 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin:/usr/local/lib/nvim:/usr/local/lib/nodejs/node-v14.17.1-linux-x64/bin:~/bin
 
 alias vi=nvim
+alias dot="cd ~/dotfiles"
