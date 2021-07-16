@@ -37,7 +37,7 @@ let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 " telescope
 source ~/.config/nvim/telescope.vim
 
-colorscheme nord
+colorscheme elford
 
 set tabstop=4
 set softtabstop=4
