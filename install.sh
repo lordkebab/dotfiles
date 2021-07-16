@@ -13,6 +13,11 @@ if [[ $? -ne 0 ]]; then
 	sudo apt update && sudo apt install -y stow
 fi
 
+# install nord theme in the terminal
+git clone https://github.com/arcticicestudio/nord-gnome-terminal.git
+cd nord-gnome-terminal/src
+sudo ./nord.sh
+
 # install all dotfiles
 for STOW_PACKAGE in $(ls -l | grep '^d' | awk '{print $9}')
 do
