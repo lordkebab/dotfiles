@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=$PATH:/usr/local/go/bin:/usr/local/lib/nvim:/usr/local/lib/nodejs/node-v14.17.1-linux-x64/bin:~/bin
+export PATH=$PATH:/usr/local/go/bin:/usr/local/lib/nvim:/usr/local/lib/nodejs/node-v14.17.1-linux-x64/bin:~/bin:$(go env GOPATH)/bin
 
 alias vi=nvim
 alias dot="cd ~/dotfiles"
