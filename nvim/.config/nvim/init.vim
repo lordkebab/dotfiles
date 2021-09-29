@@ -49,6 +49,10 @@ source ~/.config/nvim/telescope.vim
 
 colorscheme elflord
 
+" prevent deoplete-go from opening scratch buffer on preview
+" https://github.com/deoplete-plugins/deoplete-go/issues/131
+set completeopt-=preview
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
