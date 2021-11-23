@@ -24,3 +24,6 @@ do
 	echo "setting up ${STOW_PACKAGE}"
 	stow $STOW_PACKAGE
 done
+
+# install vim
+sudo apt install -y vim
