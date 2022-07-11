@@ -1,10 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
+" LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-orgmode/orgmode'
-" Plug 'nvim-neorg/neorg'
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
 
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -19,20 +22,44 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-"Plug 'jiangmiao/auto-pairs'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
-" Code completion
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-
-" Node.js
-"Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-
 
 call plug#end()
 
-" Random settings
+lua <<EOF
+local cmp = require("cmp")
+
+cmp.setup({
+	snippet = {
+		expand = function(args)
+
+		require("luasnip").lsp_expand(args.body)
+
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<c-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+		["<c-f>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+		["<cr>"] = cmp.mapping(cmp.mapping.confirm(), {"i", "c"}),
+	}),
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+	},
+	completion = {
+	  completeopt = 'menu,menuone,noinsert,preview',
+	},
+})
+
+require("lspconfig").gopls.setup({})
+
+EOF
+
+
+" set completeopt=menu,menuone,noselect
+
+let mapleader = " "
 nnoremap <leader>tt <cmd>terminal<cr>
 "nnoremap <leader>bg <cmd> <cr>
 
@@ -65,10 +92,6 @@ set shiftwidth=4
 set number
 set relativenumber
 set colorcolumn=80
-
-lua <<EOF
-require'lspconfig'.gopls.setup{}
-EOF
 
 let g:clipboard=1
 
