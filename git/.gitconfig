@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = matt s
-	email = matts@matts.io
+	email = matt.selph@gmail.com
 
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
