@@ -183,8 +183,5 @@ bar {
 # compton
 exec --no-startup-id compton
 
-gaps inner 10
-gaps outer 10
-
 default_border pixel 1
 default_floating_border pixel 1
