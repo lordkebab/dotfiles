@@ -1,8 +1,0 @@
-# This is Git's per-user configuration file.
-[user]
-# Please adapt and uncomment the following lines:
-	name = matt s
-	email = matt.selph@gmail.com
-
-[url "ssh://git@gitlab.com/"]
-	insteadOf = https://gitlab.com/
